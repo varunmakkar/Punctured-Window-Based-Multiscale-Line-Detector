@@ -7,8 +7,7 @@ function [t2]=geodesic_dilation(F,G,n)
 %                MORPHOLOGICAL RECONSTRUCTION BY DILATION, output-O(result 
 %                of geodesic dilation)
 % references   : Gonzalez 4th edn
-% date         : 16-08-22
-% author       : varun makkar
+
 
 % CAUTION REMINDER: F,G & O are binary images
 
