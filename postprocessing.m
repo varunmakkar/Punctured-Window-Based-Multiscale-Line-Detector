@@ -2,8 +2,6 @@ function PI=postprocessing(SI)
 
 % functionality: perform the post processing steps to eradicate small
 %                noisy segments
-% reference    : IET Image Processing, Improved multi scale line detection
-%                method for retinal blood vessel segmentation
 % usage        : input the binary sgmented image-SI, output-PI is the result
 %                of post processing
 
