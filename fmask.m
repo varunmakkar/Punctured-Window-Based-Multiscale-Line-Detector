@@ -3,10 +3,7 @@ function [M]=fmask(n)
 % functionality:here we construct the fractional mask using Left weighted 
 %               integral concept of bspc paper as per the scheme of
 %               arrangement of coefficients depicted in cssp paper.
-% reference    :anil brother's bspc paper
 % usage        :input-n,output-M is the required mask of order n+1 x n+1              
-% author       :varun makkar
-% date         :01-10-21
 
 % CREATING THE FRACTIONAL MASK
 a=0.85;
