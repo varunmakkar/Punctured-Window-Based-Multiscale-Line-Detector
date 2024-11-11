@@ -1,25 +1,12 @@
-function [D , B]=RVSmsld(A,Msk)
-%function [B]=RVSmsld(A,Msk)
+function [D , B]=RVS(A,Msk)
 
 % functionality: segmentation of Retinal Blood Vessels 
-% author       : varun makkar
-% date         : 13-06-2022
 % usage        : input the original RGB fundus image-A, and the image 
 %                mask-Msk.output-D is the final segmented image returned
 %                as logical data type and B-the response image generated
 %                using line detectors.
 
 
-% -----VARIABLES USED-----
-% A: RGB fundus image
-% Msk: mask to do the processing efficiently in just the ROI
-% B: average response image(after standardisation)
-% D: the final segmented image
-% MLR: contains the modified line response for each length in "Lengths"
-% M,C: intermediary image variables
-% Ws: max window size(W in the reference paper)
-% Lengths: the modified line responses are computed for each length in this
-%          vector "Lengths"
 
 % GRAY SCALE CONVERSION
 A=A(:,:,2); % simply using the green channel
@@ -56,10 +43,8 @@ for i=1:numel(Lengths)
 end
 A=standardize_the_image(A,Msk);
 B=(B+A)/(numel(Lengths)+1); % taking the average of all the responses and the image
-%figure,imshow(B)
-% HYSTERESIS THRESHOLDING: TO GET THE SEGMENTED VESSELES
-%as of now hyst_thd, is designed to work for images with intensity in [0,1]
-%but now we have modified it to work on the full range of B
+
+% HYSTERESIS THRESHOLDING
 C=hyst_thd_4RVS(B); 
 
 % POSTPROCESSING
